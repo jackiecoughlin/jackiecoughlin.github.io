@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 84px;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body.nav-open {
@@ -89,7 +91,11 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem max(1.25rem, calc((100vw - var(--max)) / 2));
+  padding:
+    calc(1rem + env(safe-area-inset-top))
+    max(calc(1.25rem + env(safe-area-inset-right)), calc((100vw - var(--max)) / 2))
+    1rem
+    max(calc(1.25rem + env(safe-area-inset-left)), calc((100vw - var(--max)) / 2));
   color: #fff;
   transition:
     background-color 180ms ease,
@@ -179,6 +185,7 @@ button {
 .hero {
   position: relative;
   min-height: 86vh;
+  min-height: 86svh;
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -570,6 +577,8 @@ h1 {
   border-radius: 8px;
   background: var(--paper-strong);
   box-shadow: 0 12px 32px rgba(0, 4, 14, 0.34);
+  min-width: 0;
+  overflow-wrap: anywhere;
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease,
@@ -598,6 +607,7 @@ h1 {
 .project-link strong,
 .project-link small {
   display: block;
+  overflow-wrap: anywhere;
 }
 
 .project-link strong {
@@ -644,6 +654,8 @@ h1 {
   border-radius: 8px;
   background: rgba(78, 220, 255, 0.08);
   font-weight: 800;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .contact-panel a::after {
@@ -685,7 +697,11 @@ h1 {
 
 @media (max-width: 820px) {
   .site-header {
-    padding-inline: 1.25rem;
+    padding:
+      calc(0.85rem + env(safe-area-inset-top))
+      calc(1rem + env(safe-area-inset-right))
+      0.85rem
+      calc(1rem + env(safe-area-inset-left));
   }
 
   .nav-toggle {
@@ -694,7 +710,11 @@ h1 {
 
   .site-nav {
     position: fixed;
-    inset: 70px 1rem auto 1rem;
+    inset:
+      calc(70px + env(safe-area-inset-top))
+      calc(1rem + env(safe-area-inset-right))
+      auto
+      calc(1rem + env(safe-area-inset-left));
     display: grid;
     gap: 0.25rem;
     padding: 0.55rem;
@@ -723,6 +743,7 @@ h1 {
 
   .hero {
     min-height: 84vh;
+    min-height: 84svh;
   }
 
   .hero-inner {
@@ -770,7 +791,8 @@ h1 {
   }
 
   .hero-inner {
-    padding-top: 6.5rem;
+    padding-top: calc(6rem + env(safe-area-inset-top));
+    padding-bottom: 3rem;
   }
 
   h1 {
@@ -799,6 +821,42 @@ h1 {
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 430px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .intro-section {
+    padding: 2rem 0;
+  }
+
+  .content-section,
+  .contact-section {
+    padding: 3rem 0;
+  }
+
+  .project-link {
+    min-height: auto;
+    padding: 0.9rem;
+  }
+
+  .contact-panel a {
+    align-items: flex-start;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .contact-panel a::after {
+    margin-top: 0.25rem;
   }
 }
 
