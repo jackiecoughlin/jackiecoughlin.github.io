@@ -793,6 +793,7 @@ h1 {
   .hero-inner {
     padding-top: calc(6rem + env(safe-area-inset-top));
     padding-bottom: 2.5rem;
+    gap: 1.1rem;
   }
 
   h1 {
@@ -817,6 +818,40 @@ h1 {
 
   .hero-copy {
     margin-top: 1.1rem;
+  }
+
+  .math-animation {
+    display: block;
+    width: min(100%, 300px);
+    min-height: 230px;
+    justify-self: center;
+    margin-top: 0.35rem;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .math-animation::before {
+    inset: 8%;
+  }
+
+  .math-token {
+    font-size: 0.95rem;
+  }
+
+  .math-token-one {
+    left: 2%;
+    top: 10%;
+  }
+
+  .math-token-two {
+    right: 6%;
+    top: 5%;
+  }
+
+  .math-token-three {
+    right: 2%;
+    bottom: 15%;
   }
 
   .intro-grid h2,
@@ -853,6 +888,11 @@ h1 {
   .hero-copy {
     font-size: 0.96rem;
     line-height: 1.5;
+  }
+
+  .math-animation {
+    width: min(100%, 280px);
+    min-height: 205px;
   }
 
   .intro-section {
