@@ -792,11 +792,31 @@ h1 {
 
   .hero-inner {
     padding-top: calc(6rem + env(safe-area-inset-top));
-    padding-bottom: 3rem;
+    padding-bottom: 2.5rem;
   }
 
   h1 {
-    font-size: 2.55rem;
+    font-size: clamp(2.05rem, 11vw, 2.55rem);
+    line-height: 1.04;
+    max-width: 100%;
+  }
+
+  .typewriter-text {
+    width: auto;
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+    border-right: 0;
+    animation: none;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .hero-copy {
+    margin-top: 1.1rem;
   }
 
   .intro-grid h2,
@@ -831,8 +851,8 @@ h1 {
   }
 
   .hero-copy {
-    font-size: 1rem;
-    line-height: 1.55;
+    font-size: 0.96rem;
+    line-height: 1.5;
   }
 
   .intro-section {
@@ -862,7 +882,7 @@ h1 {
 
 @media (max-width: 380px) {
   h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 }
 
